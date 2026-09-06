@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, type PointerEvent } from "react";
 import type { ProductCard as ProductCardData, CurrentDeal } from "@dodgey-deals/shared";
 import { STORE_DISPLAY_FALLBACK, normalizeStoreKey } from "@dodgey-deals/shared";
 import AddToListButton from "@/components/AddToListButton";
+import ProductImage from "@/components/ProductImage";
 import { getStoreLogoMeta } from "@/lib/store-meta";
 import { useCardLayout } from "@/lib/card-layout-context";
 import { isNewSpecial } from "@/lib/special-freshness";
@@ -175,13 +175,12 @@ export default function ProductListCard({
         }`}
       >
         <div className={`flex items-center justify-center overflow-hidden rounded-xl ${isGridLayout ? "h-full w-full" : "h-[76px] w-[76px]"}`}>
-          <Image
+          <ProductImage
             src={product.image}
             alt={product.name}
             width={112}
             height={112}
             sizes={isGridLayout ? "(max-width: 480px) 45vw, 256px" : "96px"}
-            unoptimized
             loading="lazy"
             className={`product-image-content h-full w-full object-contain mix-blend-multiply ${isGridLayout ? "scale-[0.95]" : ""}`}
           />

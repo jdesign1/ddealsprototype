@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ShieldCheck, ShieldAlert } from "lucide-react";
 import type { ProductCard, CurrentDeal } from "@dodgey-deals/shared";
 import AddToListButton from "@/components/AddToListButton";
+import ProductImage from "@/components/ProductImage";
 import { isNewSpecial } from "@/lib/special-freshness";
 
 /**
@@ -58,12 +58,11 @@ export default function DealCard({
       className="flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-transform duration-150 ease-out active:scale-[0.985] active:opacity-95"
     >
       <div className="product-image-frame relative aspect-square w-full overflow-hidden bg-stone-100">
-        <Image
+        <ProductImage
           src={product.image}
           alt={product.name}
           fill
           sizes="(max-width: 480px) 50vw, 256px"
-          unoptimized
           loading="lazy"
           className="product-image-content object-contain p-3"
         />

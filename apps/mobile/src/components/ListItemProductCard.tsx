@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, X } from "lucide-react";
 import type { ProductCard as ProductCardData, CurrentDeal } from "@dodgey-deals/shared";
 import { getStoreLogoMeta } from "@/lib/store-meta";
 import BottomSheetPortal from "@/components/BottomSheetPortal";
+import ProductImage from "@/components/ProductImage";
 
 /**
  * Compact product row for a list's own item list on `apps/mobile/src/app/
@@ -258,13 +259,12 @@ export default function ListItemProductCard({
       style={{ cursor: confirmingRemove ? "default" : "pointer", touchAction: "pan-y" }}
     >
       <div className="product-image-frame flex h-14 w-14 flex-shrink-0 select-none items-center justify-center overflow-hidden rounded-lg bg-stone-50">
-        <Image
+        <ProductImage
           src={product.image}
           alt={product.name}
           width={56}
           height={56}
           sizes="56px"
-          unoptimized
           loading="lazy"
           className="product-image-content h-full w-full object-contain"
         />

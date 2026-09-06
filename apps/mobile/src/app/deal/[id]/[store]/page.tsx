@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
@@ -44,6 +43,7 @@ import AssessmentText from "@/components/AssessmentText";
 import InsightCarousel from "@/components/InsightCarousel";
 import ErrorState from "@/components/ErrorState";
 import AddToListButton from "@/components/AddToListButton";
+import ProductImage from "@/components/ProductImage";
 import { subscribeToCatalogueUpdates, publishCatalogueUpdate } from "@/lib/catalogue-refresh";
 
 /**
@@ -685,7 +685,7 @@ export default function DealAssessmentPage() {
             aria-label={`View larger image of ${product.name}`}
             className="product-image-frame deal-assessment-image h-28 w-28 flex-shrink-0 select-none overflow-hidden rounded-lg border-0 p-0"
           >
-            <Image src={product.image} alt={product.name} width={112} height={112} unoptimized className="product-image-content h-full w-full object-contain" />
+            <ProductImage src={product.image} alt={product.name} width={112} height={112} className="product-image-content h-full w-full object-contain" />
           </button>
           <div className="min-w-0 flex-1">
             <h3 className="break-words text-base font-extrabold leading-snug text-stone-900">{product.name}</h3>
@@ -1012,12 +1012,11 @@ export default function DealAssessmentPage() {
                               <AddToListButton productId={altProd.id} />
                               <div className="flex items-start gap-4">
                                 <div className="product-image-frame deal-assessment-image flex h-24 w-24 flex-shrink-0 select-none items-center justify-center overflow-hidden rounded-xl">
-                                  <Image
+                                  <ProductImage
                                     src={altProd.image}
                                     alt={altProd.name}
                                     width={96}
                                     height={96}
-                                    unoptimized
                                     className="product-image-content h-full w-full object-contain mix-blend-multiply"
                                   />
                                 </div>
@@ -1265,12 +1264,11 @@ export default function DealAssessmentPage() {
           className="flex max-h-[85vh] max-w-[92vw] items-center justify-center rounded-2xl bg-white p-4 shadow-2xl"
           onClick={(event) => event.stopPropagation()}
         >
-          <Image
+          <ProductImage
             src={product.image}
             alt={product.name}
             width={768}
             height={768}
-            unoptimized
             className="product-image-content max-h-[78vh] max-w-[84vw] object-contain"
           />
         </div>

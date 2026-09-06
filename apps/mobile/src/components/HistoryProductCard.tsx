@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { CurrentDeal, ProductCard as ProductCardData } from "@dodgey-deals/shared";
 import AddToListButton from "@/components/AddToListButton";
+import ProductImage from "@/components/ProductImage";
 import { getStoreLogoMeta } from "@/lib/store-meta";
 
 interface HistoryProductCardProps {
@@ -52,13 +52,12 @@ export default function HistoryProductCard({ product, deal }: HistoryProductCard
     >
       <AddToListButton productId={product.id} />
       <div className="product-image-frame flex h-16 w-16 flex-shrink-0 select-none items-center justify-center overflow-hidden rounded-lg bg-stone-50">
-        <Image
+        <ProductImage
           src={product.image}
           alt={product.name}
           width={64}
           height={64}
           sizes="64px"
-          unoptimized
           loading="lazy"
           className="product-image-content h-full w-full object-contain"
         />
