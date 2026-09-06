@@ -181,6 +181,8 @@ export default function ProductListCard({
             width={112}
             height={112}
             sizes={isGridLayout ? "(max-width: 480px) 45vw, 256px" : "96px"}
+            unoptimized
+            loading="lazy"
             className={`product-image-content h-full w-full object-contain mix-blend-multiply ${isGridLayout ? "scale-[0.95]" : ""}`}
           />
         </div>

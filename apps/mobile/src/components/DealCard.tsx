@@ -63,6 +63,8 @@ export default function DealCard({
           alt={product.name}
           fill
           sizes="(max-width: 480px) 50vw, 256px"
+          unoptimized
+          loading="lazy"
           className="product-image-content object-contain p-3"
         />
         {showNewBadge && isNewSpecial(deal) && (

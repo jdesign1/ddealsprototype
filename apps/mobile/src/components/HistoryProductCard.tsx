@@ -58,6 +58,8 @@ export default function HistoryProductCard({ product, deal }: HistoryProductCard
           width={64}
           height={64}
           sizes="64px"
+          unoptimized
+          loading="lazy"
           className="product-image-content h-full w-full object-contain"
         />
       </div>
